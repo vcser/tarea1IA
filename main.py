@@ -25,7 +25,8 @@ def main(argv):
             g.push(node1, node2, int(cost))
 
     f.close()
-    print(g)
+    # print(g)
+    print(str(g.dfs()))
 
 
 if __name__ == "__main__":
