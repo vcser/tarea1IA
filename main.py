@@ -25,7 +25,7 @@ def main(argv):
 
     f.close()
     # print(g)
-    print(str(g.dfs()))
+    print(str(g.ucs()))
 
 
 if __name__ == "__main__":
