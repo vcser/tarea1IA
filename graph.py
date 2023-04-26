@@ -17,16 +17,9 @@ class Graph:
             self.adj[n1] = []
         self.adj[n1].append((n2, c))
 
-    def h(self, node, value: int) -> None:
+    def add(self, node, value = 0) -> None:
+        self.adj[node] = []
         self._h[node] = value
-
-    def goal(self, start, end) -> None:
-        if start not in self.adj:
-            self.adj[start] = []
-        self.start = start
-        if end not in self.adj:
-            self.adj[end] = []
-        self.end = end
 
     def dfs(self):
         def search(self, node, visited):

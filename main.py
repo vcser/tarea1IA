@@ -9,16 +9,15 @@ def main(argv):
     f = open(argv[1], "r")
     g = Graph()
 
-    start = f.readline().split()[1]
-    end = f.readline().split()[1]
-    g.goal(start, end)
+    g.start = f.readline().split()[1]
+    g.end = f.readline().split()[1]
 
     for i in f:
         line = i.split()
-        # recibir heuristicas
+        # añadir nodos con sus heuristicas
         if len(line) == 2:
             node, value = line
-            g.h(node, int(value))
+            g.add(node, int(value))
         # conectar nodos
         elif len(line) == 3:
             node1, node2, cost = line
