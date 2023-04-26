@@ -24,8 +24,14 @@ def main(argv):
             g.push(node1, node2, int(cost))
 
     f.close()
-    # print(g)
-    print(str(g.ucs()))
+
+    solution = g.ucs()
+    # print(str(solution))
+    for i in solution[0][:-1]:
+        print(i, "-> ", end="")
+    print(solution[0][-1])
+    print("Costo: ", solution[1])
+
 
 
 if __name__ == "__main__":
