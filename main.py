@@ -3,11 +3,12 @@ from graph import Graph
 
 
 def main(argv):
-    if len(argv) < 2:
-        print(f"usage: python {argv[0]} <file path>")
+    if len(argv) < 3:
+        print(f"usage: python {argv[0]} <file path> <algorithm>")
         exit(1)
     f = open(argv[1], "r")
     g = Graph()
+    algorithm = argv[2]
 
     g.start = f.readline().split()[1]
     g.end = f.readline().split()[1]
@@ -25,12 +26,27 @@ def main(argv):
 
     f.close()
 
-    solution = g.ucs()
-    # print(str(solution))
+    solution = None
+
+    if algorithm == 'dfs':
+        solution = g.dfs()
+    elif algorithm == 'ucs':
+        solution = g.ucs()
+    elif algorithm == 'greedy':
+        solution = g.greedy()
+    elif algorithm == 'Astar':
+        solution = g.Astar()
+
+    # imprimir camino
     for i in solution[0][:-1]:
         print(i, "-> ", end="")
     print(solution[0][-1])
+    # imprimir costo
     print("Costo: ", solution[1])
+    #imprimir expansiones
+    for i in solution[0]:
+        print(i + ": 1")
+
 
 
 

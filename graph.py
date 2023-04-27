@@ -82,5 +82,8 @@ class Graph:
                     parents[child] = node
                     q.put((priority + cost, child))
 
+    def greedy(self):
+        pass
+
     def Astar(self):
         pass
